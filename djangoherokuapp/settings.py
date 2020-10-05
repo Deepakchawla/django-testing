@@ -20,12 +20,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '^xznrmxqp6r^dr=96kj7--inqca)psl*kdyk*(k79!hc+21$u!'
+SECRET_KEY = 'c&4m%4w_fa46^%)^4dw(tt(8isr)kc&f)qr(e)g3jay*#s&d_)'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
 ALLOWED_HOSTS = ['herokudjangoapp.herokuapp.com', '*']
+
 
 
 # Application definition
@@ -122,7 +123,7 @@ import os
 STATIC_URL = '/static/'
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
-PROJECT_ROOT   =   os.path.join(os.path.abspath(__file__))
+PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 STATIC_ROOT  =   os.path.join(PROJECT_ROOT, 'staticfiles')
 
 # Extra lookup directories for collectstatic to find static files
@@ -131,7 +132,7 @@ STATICFILES_DIRS = (
 )
 
 #  Add configuration for static files storage using whitenoise
-STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 import dj_database_url
 prod_db  =  dj_database_url.config(conn_max_age=500)
 DATABASES['default'].update(prod_db)
